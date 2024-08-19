@@ -139,7 +139,7 @@ section span {
 
 .button {
   background: none;
-  border: 0.2rem solid #4fc739;
+  border: 0.2rem solid #898989;
 
   margin-bottom: 6rem;
   padding: 1.4rem 3rem;
@@ -1714,4 +1714,67 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
   margin-top: 8px; /* Espaçamento entre a imagem e o texto */
   font-size: 1.4rem; /* Ajuste o tamanho da fonte */
   color: #00d5ff; /* Cor do texto */
+}
+
+
+
+
+
+
+
+/* Estilo da seção de projetos */
+#projects {
+  background-color: var(--secundary-color);
+  padding-block: 10rem;
+}
+
+#projects header h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+#projects .content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.project-item {
+  background-color: var(--bg-color);
+  padding: 2.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-item h3 {
+  color: var(--headline);
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.project-item p {
+  color: var(--paragraph);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.project-item .button {
+  background-color: #398fe6;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.project-item .button:hover {
+  background-color: var(--primary-hover);
 }
