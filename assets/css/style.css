@@ -1,5 +1,3 @@
-/*===== GERAL ===============================================*/
-
 * {
   margin: 0;
   padding: 0;
@@ -1763,6 +1761,70 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
   font-size: 1.6rem;
   line-height: 1.4;
   margin-bottom: 1.5rem;
+}
+
+.project-item .button {
+  background-color: #398fe6;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.project-item .button:hover {
+  background-color: var(--primary-hover);
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color);
+  padding: 2.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+  flex: 1;
+  max-width: 300px; /* Ajuste o tamanho da imagem */
+  margin-right: 2rem; /* Espaço entre a imagem e o conteúdo */
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+}
+
+.project-details {
+  flex: 2;
+  text-align: left;
+}
+
+.project-item h3 {
+  color: var(--headline);
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.project-item p {
+  color: var(--paragraph);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.project-item .buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 .project-item .button {
