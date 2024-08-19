@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Aprendizado Gamificada</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h1>GENIVALDO LEAL</h1>
+      <div class="social-icons">
+        <a href="https://github.com/SoFortune" target="_blank">
+          <img src="icons/logotipo-do-github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://instagram.com/geni_slj" target="_blank">
+          <img src="icons/instagram.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" id="usernameContainer">
+    <h1>Bem-vindo à Plataforma de Aprendizado Gamificada</h1>
+    <input type="text" id="usernameInput" placeholder="Digite seu nome" required>
+    <button id="startButton">Começar</button>
+  </div>
+
+  <div class="container" id="mainContainer" style="display:none;">
+    <header>
+      <h1>Plataforma de Aprendizado Gamificada</h1>
+      <div class="user-info">
+        <span id="username">Usuário:</span>
+        <span id="points">Pontos: 0</span>
+        <span id="level">Nível: 1</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="courses">
+        <h2>Cursos</h2>
+        <div id="courseList">
+          
+        </div>
+      </section>
+
+      <section class="quizzes">
+        <h2>Complete o Quiz para Ganhar Pontos</h2>
+        <div class="quiz-container" id="quizContainer">
+         
+        </div>
+        <div class="quiz-progress">
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <div class="progress-text" id="progressText">0%</div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="neon-trail"></div>
+  <footer class="footer">
+    <p>&copy; 2024 Genivaldo Leal. Todos os direitos reservados.</p>
+  </footer>
+  
+  
+  <script src="script.js"></script>
+</body>
+</html>
