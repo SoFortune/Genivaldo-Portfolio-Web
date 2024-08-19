@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>GENIVALDO LEAL</h1>
+            <div class="social-icons">
+                <a href="https://github.com/SoFortune" target="_blank">
+                    <img src="assets/img/logotipo-do-github.png" alt="GitHub" class="social-icon">
+                </a>
+                <a href="https://instagram.com/geni_slj" target="_blank">
+                    <img src="assets/img/instagram.png" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="overlay">
+        <div class="game-container">
+            <h1>Jogo da Memória</h1>
+            <div class="level-selection">
+                <button class="level-button" data-level="easy" title="4x4 - Um jogo básico para iniciantes">Fácil</button>
+                <button class="level-button" data-level="medium" title="6x6 - Um desafio moderado">Médio</button>
+                <button class="level-button" data-level="hard" title="8x8 - Um grande desafio">Difícil</button>
+                <button class="level-button" data-level="insane" title="8x8 - Acertos resetam se você errar!">Impossível</button>
+            </div>
+            <div class="game-board" id="gameBoard"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>© 2024 Genivaldo Leal. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
