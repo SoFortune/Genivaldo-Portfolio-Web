@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>GENIVALDO LEAL</h1>
+            <div class="social-icons">
+                <a href="https://github.com/SoFortune" target="_blank">
+                    <img src="assets/icons/logotipo-do-github.png" alt="GitHub" class="social-icon">
+                </a>
+                <a href="https://instagram.com/geni_slj" target="_blank">
+                    <img src="assets/icons/instagram.png" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 id="welcome-text"></h1>
+
+        <div id="conversion-area" class="hidden">
+            <div class="input-group">
+                <select id="category">
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <option value="length">Medidas de comprimento</option>
+                    <option value="capacity">Medidas de capacidade</option>
+                    <option value="mass">Medidas de massa</option>
+                    <option value="surface">Medidas de superfície</option>
+                    <option value="volume">Medidas de volume</option>
+                    <option value="time">Medidas de tempo</option>
+                    <option value="agricultural">Medidas agrárias</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input type="number" id="input-value" placeholder="Valor a ser convertido">
+                <select id="from-unit">
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <select id="to-unit">
+                </select>
+            </div>
+
+            <button id="convert-btn">Converter</button>
+
+            <div id="calculation-steps" class="hidden">
+                <!-- Passos do cálculo exibidos aqui -->
+            </div>
+
+            <div id="conversion-result" class="hidden">
+                <!-- Resultado da conversão exibido aqui -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 Genivaldo Leal. Todos os direitos reservados.</p>
+  </footer>
+  
+
+    <script src="script.js"></script>
+</body>
+</html>
