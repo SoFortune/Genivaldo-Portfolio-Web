@@ -1887,3 +1887,16 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
     margin: 10px 0;
   }
 }
+
+
+/* Desativando animações e transições em todo o rodapé e seção de contatos */
+#contact,
+#contact .col-a,
+#contact .col-b,
+footer,
+footer * {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
