@@ -1842,3 +1842,48 @@ footer .social-links li:nth-child(4) svg path:nth-child(2) {
 .project-item .button:hover {
   background-color: var(--primary-hover);
 }
+
+
+/* Responsividade para telas menores */
+@media only screen and (max-width: 768px) {
+  .contact-section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    font-size: 24px;
+  }
+
+  .contact-section p {
+    font-size: 18px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    margin-bottom: 20px;
+  }
+
+  .contact-info {
+    display: block;
+    text-align: center;
+  }
+
+  .contact-info a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .footer {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .footer a {
+    display: block;
+    margin: 10px 0;
+  }
+}
