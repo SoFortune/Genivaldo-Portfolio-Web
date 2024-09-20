@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metadados e links de estilo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Página de login animada</title>
+</head>
+<body>
+
+    <!-- Formulário de criar conta -->
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form >
+                <h1>Criar conta</h1>
+                <div class="social-icons">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="social"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <span>ou use seu e-mail para registro</span>
+                <input type="text" placeholder="Nome e Sobrenome" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Senha" />
+                <button>Login</button>
+            </form>
+        </div>
+        
+        <!-- Formulário de criar conta -->
+        <div class="form-container sign-in">
+            <form>
+                <h1>Entrar</h1>
+                <div class="social-icons">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="social"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <span>ou use seu e-mail e senha!</span>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Senha" />
+                <a href="#">Esqueceu sua senha?</a>
+                <button>Login</button>
+            </form>
+        </div>
+
+        <!-- Botões para trocar entre os formulários -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Ja tem conta no nosso site?</h1>
+                    <p>Aperte o botão abaixo e insira seus dados!</p>
+                    <button class="hidden" id="login">Login</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá amigo!</h1>
+                    <p>Cadastre-se agora no botão abaixo</p>
+                    <button class="hidden" id="register">Criar conta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
