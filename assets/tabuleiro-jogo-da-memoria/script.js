@@ -1,143 +1,126 @@
-/* Estilos gerais do corpo */
-body {
-  background-color: #e5d5c5;
-  background: linear-gradient(to left, #f1e3d3, #c9ab8d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
+const gameBoard = document.getElementById('gameBoard');
+const levelButtons = document.querySelectorAll('.level-button');
+
+const levels = {
+    easy: { gridSize: 4, cardPairs: 8 },
+    medium: { gridSize: 6, cardPairs: 18 },
+    hard: { gridSize: 8, cardPairs: 32 },
+    insane: { gridSize: 8, cardPairs: 32, resetOnMiss: true }
+};
+
+let firstCard, secondCard;
+let hasFlippedCard = false;
+let lockBoard = false;
+let matches = 0;
+let currentLevel = levels.easy;
+let matchedCards = [];
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
 }
 
-
-.overlay {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+function generateCards(cardPairs) {
+    const cards = [];
+    for (let i = 1; i <= cardPairs; i++) {
+        cards.push(i);
+        cards.push(i);
+    }
+    shuffle(cards);
+    return cards;
 }
 
-.game-container {
-  background-color: #fff7ed;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+function createBoard(level) {
+    gameBoard.innerHTML = '';
+    gameBoard.style.gridTemplateColumns = `repeat(${level.gridSize}, 1fr)`;
+    gameBoard.style.gridTemplateRows = `repeat(${level.gridSize}, 1fr)`;
+
+    const cards = generateCards(level.cardPairs);
+
+    cards.forEach(number => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        cardElement.dataset.number = number;
+        cardElement.innerHTML = number;  
+        cardElement.addEventListener('click', flipCard);
+        gameBoard.appendChild(cardElement);
+    });
+
+    matchedCards = []; 
 }
 
-h1 {
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  color: #000000;
+function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.classList.add('flipped');
+
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
+
+    secondCard = this;
+    checkForMatch();
 }
 
-.level-selection {
-  margin-bottom: 20px;
+function checkForMatch() {
+    const isMatch = firstCard.dataset.number === secondCard.dataset.number;
+
+    if (isMatch) {
+        disableCards();
+        matches++;
+        if (matches === currentLevel.cardPairs) {
+            setTimeout(() => alert('Parabéns! Você completou o nível!'), 500);
+        }
+    } else {
+        if (currentLevel.resetOnMiss) {
+            
+            resetMatchedCards();
+        }
+        unflipCards();
+    }
 }
 
-.level-button {
-  background-color: #f3ce9f;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: background-color 0.3s;
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+    firstCard.classList.add('matched');
+    secondCard.classList.add('matched');
+
+    matchedCards.push(firstCard, secondCard); 
+
+    resetBoard();
 }
 
-.level-button:hover {
-  background-color: #d58c33;
+function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => {
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
+        resetBoard();
+    }, 1500);
 }
 
-.game-board {
-  display: grid;
-  justify-content: center;
-  gap: 5px; /* Ajusta o espaçamento entre as cartas */
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
 }
 
-.card {
-  width: 50px; /* Largura das cartas */
-  height: 50px; 
-  background-color: #c89f75;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem; 
-  color: transparent;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+function resetMatchedCards() {
+    matchedCards.forEach(card => {
+        card.classList.remove('flipped', 'matched');
+        card.addEventListener('click', flipCard);
+    });
+    matchedCards = [];
 }
 
-.card.flipped {
-  background-color: #feab3d;
-  color: #fff; 
-}
-
-.card.flipped .card-inner {
-  transform: rotateY(0deg); 
-}
-
-.card-inner {
-  transform: rotateY(180deg); 
-  backface-visibility: hidden; 
-}
-
-.card.matched {
-  background-color: #4caf50;
-  cursor: default;
-}
-
-.header {
-  background-color: #007bff;
-  padding: 20px 0;
-  border-top: 5px solid #ffffff; 
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  gap: 15px; 
-}
-
-.header h1 {
-  font-size: 24px;
-  margin: 0;
-  font-weight: bold;
-  color: #f8f9fa;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
-
-.social-icon {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
-}
-
-/* Estilo do rodapé */
-.footer {
-  background-color: #191a1a;
-  color: #f8f9fa; 
-  text-align: center; 
-  padding: 20px 0;
-  border-top: 5px solid #007bff;
-  font-size: 14px;
-  width: 100%;
-}
+levelButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const levelName = button.getAttribute('data-level');
+        currentLevel = levels[levelName];
+        matches = 0;
+        createBoard(currentLevel);
+    });
+});
