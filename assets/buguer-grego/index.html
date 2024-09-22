@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burguer Grego</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <img src="./images/logo.png" alt="logo" class="logo" />
+        <button id="open-cart-btn">Compre aqui</button>
+      </nav>
+      <div class="content">
+        <div class="burger-text">
+          <h1>Alfa Burguer</h1>
+          <p class="burger-info">
+            Carne Bovina, Bacon, Queijo Cheddar, Cebola Caramelizada,<br/>Tomate.
+          </p>
+        </div>  
+        <div class="photos">
+            <div class="burger-wrapper activePhoto">
+                <img src="./images/burguer1.png" alt="burguer1" class="static-burguer">
+            </div>
+            <div class="burger-wrapper">
+                <img src="./images/burguer4.png" alt="burguer2" class="static-burguer">
+            </div>
+            <div class="burger-wrapper">
+                <img src="./images/burguer3.png" alt="burguer3" class="static-burguer">
+            </div>
+            <div class="burger-wrapper">
+                <img src="./images/burguer2.png" alt="burguer4" class="static-burguer">    
+            </div>
+        </div>
+      </div>
+      <div class="burger-wheel">
+        <img src="./images/burguer1.png" alt="burger1" class="dynamic-burguer-1" />
+        <img src="./images/burguer2.png" alt="burger2" class="dynamic-burguer-2" />
+        <img src="./images/burguer3.png" alt="burger3" class="dynamic-burguer-3" />
+        <img src="./images/burguer4.png" alt="burger4" class="dynamic-burguer-4" />
+      </div>
+      <div class="ingredients-wheel">
+        <img src="./images/1.png" alt="tomate" class="dynamic-burguer-1">
+        <img src="./images/2.png" alt="bacon" class="dynamic-burguer-2">
+        <img src="./images/3.png" alt="alface"  class="dynamic-burguer-3">
+        <img src="./images/4.png" alt="carne"  class="dynamic-burguer-4">
+      </div>
+    </main>
+
+    <div id="cart-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Seu Carrinho</h2>
+        <div class="cart-item">
+          <p>Alfa Burguer - R$ 19,90</p>
+          <button class="qty-btn" id="minus-burguer1">-</button>
+          <span id="qty-burguer1">0</span>
+          <button class="qty-btn" id="plus-burguer1">+</button>
+        </div>
+        <div class="cart-item">
+          <p>Beta Burguer - R$ 23,30</p>
+          <button class="qty-btn" id="minus-burguer2">-</button>
+          <span id="qty-burguer2">0</span>
+          <button class="qty-btn" id="plus-burguer2">+</button>
+        </div>
+        <div class="cart-item">
+          <p>Omega Burguer - R$ 24,50</p>
+          <button class="qty-btn" id="minus-burguer3">-</button>
+          <span id="qty-burguer3">0</span>
+          <button class="qty-btn" id="plus-burguer3">+</button>
+        </div>
+        <div class="cart-item">
+          <p>Gama Burguer - R$ 21,90</p>
+          <button class="qty-btn" id="minus-burguer4">-</button>
+          <span id="qty-burguer4">0</span>
+          <button class="qty-btn" id="plus-burguer4">+</button>
+        </div>
+        <hr>
+        <h3>Subtotal: R$ <span id="subtotal">0,00</span></h3>
+        <button id="buy-btn">Comprar</button>
+      </div>
+    </div>
+  </body>
+</html>
